@@ -25,7 +25,7 @@ while read certentry; do
 
         # check if cert is still in use and abort if it is in use
         for region in "${AWSREGIONS[@]}"; do
-            "${AWS}" elb describe-load-balancers --region="${region}" --output text | "${GREP}" -q "${certname}"
+            "${AWS}" elb describe-load-balancers --region="${region}" --output text $@ | "${GREP}" -q "${certname}"
 
             # the cert is still in use by one ELB, do not remove
             if [ $? -eq 0 ]; then
