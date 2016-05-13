@@ -5,6 +5,7 @@ ECHO="/bin/echo"
 CUT="/usr/bin/cut"
 DATE="/bin/date"
 GREP="/bin/grep"
+RM="/bin/rm"
 AWS="/usr/local/bin/aws"
 
 TMPCERTLIST="/tmp/aws_certlist"
@@ -39,5 +40,5 @@ while read certentry; do
 done < "${TMPCERTLIST}"
 
 
-/bin/rm "${TMPCERTLIST}"
+"${RM}" "${TMPCERTLIST}"
 exit 0
