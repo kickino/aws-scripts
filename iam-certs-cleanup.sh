@@ -21,7 +21,7 @@ while read certentry; do
     certname=$("${ECHO}" "${certentry}" | "${CUT}" -f 2)
 
     # check if cert is expired
-    if [ "${CURRENTDATE}" -lt "${expiry}" ]; then
+    if [ "${CURRENTDATE}" -gt "${expiry}" ]; then
 
         # check if cert is still in use and abort if it is in use
         for region in "${AWSREGIONS[@]}"; do
